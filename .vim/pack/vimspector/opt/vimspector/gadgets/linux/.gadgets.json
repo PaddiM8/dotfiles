@@ -1,0 +1,49 @@
+{
+  "adapters": {
+    "netcoredbg": {
+      "attach": {
+        "pidProperty": "processId",
+        "pidSelect": "ask"
+      },
+      "command": [
+        "${gadgetDir}/netcoredbg/netcoredbg",
+        "--interpreter=vscode"
+      ],
+      "name": "netcoredbg"
+    },
+    "vscode-cpptools": {
+      "attach": {
+        "pidProperty": "processId",
+        "pidSelect": "ask"
+      },
+      "command": [
+        "${gadgetDir}/vscode-cpptools/debugAdapters/OpenDebugAD7"
+      ],
+      "name": "cppdbg"
+    },
+    "vscode-go": {
+      "command": [
+        "node",
+        "${gadgetDir}/vscode-go/out/src/debugAdapter/goDebug.js"
+      ],
+      "name": "delve"
+    },
+    "vscode-mono-debug": {
+      "attach": {
+        "pidSelect": "none"
+      },
+      "command": [
+        "mono",
+        "${gadgetDir}/vscode-mono-debug/bin/Release/mono-debug.exe"
+      ],
+      "name": "mono-debug"
+    },
+    "vscode-python": {
+      "command": [
+        "node",
+        "${gadgetDir}/vscode-python/out/client/debugger/debugAdapter/main.js"
+      ],
+      "name": "vscode-python"
+    }
+  }
+}

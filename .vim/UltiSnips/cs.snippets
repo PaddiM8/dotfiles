@@ -1,0 +1,105 @@
+snippet init "Initial C# file, no constructor" b
+using System;
+using System.Collections.Generic;
+
+namespace `!p import os
+filePath = os.getcwd() + "/" + path
+snip.rv = os.popen("~/.config/nvim/ultiscripts/get-namespace.sh " + filePath).read()`{
+	class `!v expand('%:t:r')`
+	{
+		$1
+	}
+}
+endsnippet
+
+snippet dir "ls" b
+`ls`
+endsnippet
+
+snippet initc "Initial C# file, with constructor" b
+using System;
+using System.Collections.Generic;
+
+namespace `!p import os
+filePath = os.getcwd() + "/" + path
+snip.rv = os.popen("~/.config/nvim/ultiscripts/get-namespace.sh " + filePath).read()`{
+	class `!v expand('%:t:r')`
+	{
+		public `!v expand('%:t:r')`($1)
+		{
+			$2
+		}
+	}
+}
+endsnippet
+
+snippet cw "Console.WriteLine" b
+Console.WriteLine($1);
+endsnippet
+
+snippet fe "foreach" b
+foreach ($1)
+{
+	$2
+}
+endsnippet
+
+snippet for "for" b
+for (int ${1:i} = 0; $1 < $2; $1++)
+{
+	$3
+}
+endsnippet
+
+snippet if "if statement" b
+if ($1)
+{
+	$2
+}
+endsnippet
+
+snippet List "list" b
+var $1 = new List<$2>();
+endsnippet
+
+snippet Fun "public function" b
+public ${1:void} $2($3)
+{
+	$4
+}
+endsnippet
+
+snippet fun "private function" b
+private ${1:void} $2($3)
+{
+	$4
+}
+endsnippet
+
+snippet sFun "public static function" b
+public static ${1:void} $2($3)
+{
+	$4
+}
+endsnippet
+
+snippet sfun "private static function" b
+private static ${1:void} $2($3)
+{
+	$4
+}
+endsnippet
+
+snippet sum "summary" b
+/// <summary>
+/// $1
+/// </summary>
+endsnippet
+
+snippet sp "summary param"
+<param name="$1">$2</param>
+endsnippet
+
+snippet sr "summary returns"
+<returns>$1</returns>
+endsnippet

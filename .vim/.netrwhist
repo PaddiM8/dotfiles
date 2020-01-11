@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/paddi/bakk_home/.vim'
+let g:netrw_dirhist_3='/home/paddi/bakk_home/.config/nvim'
+let g:netrw_dirhist_2='/home/paddi/backup-2019-12-25/bakk_home'
+let g:netrw_dirhist_1='/home/paddi/backup-2019-12-25'

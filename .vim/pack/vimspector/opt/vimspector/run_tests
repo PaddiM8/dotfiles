@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+RUN_VIM="vim --clean --not-a-term"
+RUN_TEST="${RUN_VIM} -S lib/run_test.vim"
+
+if [ -z "$VIMSPECTOR_MIMODE" ]; then
+  if which lldb >/dev/null 2>&1; then
+    export VIMSPECTOR_MIMODE=lldb
+  elif which gdb >/dev/null 2>&1; then
+    export VIMSPECTOR_MIMODE=gdb
+  else
+    echo "Couldn't guess VIMSPECTOR_MIMODE. Need lldb or gdb in path"
+    exit 1
+  fi
+fi
+
+echo "Testing with VIMSPECTOR_MIMODE=$VIMSPECTOR_MIMODE"
+
+echo "%SETUP - Building test programs..."
+set -e
+  pushd tests/testdata/cpp/simple
+    make clean simple
+  popd
+set +e
+echo "%DONE - built test programs"
+
+pushd tests > /dev/null
+
+echo "Running Vimspector Vim tests"
+
+RESULT=0
+
+TESTS="$@"
+
+if [ -z "$TESTS" ]; then
+  TESTS=*.test.vim
+fi
+
+for t in ${TESTS}; do
+  echo ""
+  echo "%RUN: $t"
+  rm -f messages debuglog
+
+  # split on : into fileName and testName
+  IFS=: read -s t T <<< "$t"
+
+  if ${RUN_TEST} --cmd 'au SwapExists * let v:swapchoice = "e"' $t $T; then
+    echo "%PASS: $t PASSED"
+  else
+    cat messages
+    echo "%FAIL: $t FAILED"
+    RESULT=1
+  fi
+done
+
+popd > /dev/null
+
+echo ""
+echo "All done."
+
+exit $RESULT
