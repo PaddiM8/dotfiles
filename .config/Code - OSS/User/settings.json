@@ -1,12 +1,28 @@
 {
-    "editor.fontFamily": "'Hack', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "vim.insertModeKeyBindings": [
+  "editor.fontFamily": "'Hack', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
-    ],
-    "vim.camelCaseMotion.enable": true,
-    "vim.cursorStylePerMode.insert": "line",
-    "workbench.colorTheme": "Gruvbox Material Dark"
+  ],
+  "vim.camelCaseMotion.enable": true,
+  "vim.cursorStylePerMode.insert": "line",
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "csharpfixformat.style.braces.onSameLine": false,
+  "csharpfixformat.style.spaces.afterBracket": false,
+  "csharpfixformat.style.spaces.beforeIndexerBracket": false,
+  "csharpfixformat.style.spaces.insideEmptyBraces": false,
+  "omnisharp.enableRoslynAnalyzers": true,
+  "editor.lineNumbers": "relative",
+  "git.enableSmartCommit": true,
+  "omnisharp.useGlobalMono": "never",
+  "editor.formatOnSave": true,
+  "files.associations": {},
+  "window.zoomLevel": 0,
 }
