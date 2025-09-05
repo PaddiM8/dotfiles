@@ -1,0 +1,23 @@
+#!/bin/sh
+cmd=volume
+arg="$1"
+
+[ "$1" = mute ] && cmd=mute && arg=toggle
+
+pactl set-sink-$cmd @DEFAULT_SINK@ $arg
+mute=$(pactl get-sink-mute @DEFAULT_SINK@ | cut -d' ' -f2)
+mute_str=""
+icon=""
+if [ "$mute" = yes ]; then
+   icon=mute
+   mute_str=" (Muted)"
+elif [ "$1" = mute ]; then
+   icon=medium
+elif [ "${1#+}" = "$1" ]; then
+   icon=low
+else
+   icon=high
+fi
+
+volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F/ '{print $2}' | tr -d ' %')
+dunstify -a volume -u low -i "audio-volume-$icon" -h int:value:$volume "Volume ${volume}%${mute_str}" -r 999

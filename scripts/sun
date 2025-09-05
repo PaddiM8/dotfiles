@@ -1,0 +1,17 @@
+#!/bin/sh
+
+sign=${1:0:1}
+change=${1:1:-1}
+
+if [ $sign == "+" ]; then
+    light -s sysfs/backlight/auto -A $change
+else
+    light -s sysfs/backlight/auto -U $change
+fi
+
+brightness=$(light -s sysfs/backlight/auto -G)
+dunstify -a brightness \
+    -u low \
+    -i "brightnesssettings" \
+    -h int:value:$brightness "Brightness ${brightness:0:-3}%" \
+    -r 888

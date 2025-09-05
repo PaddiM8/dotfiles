@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ddcutil setvcp --display 2 10 $1 &> /dev/null
+ddcutil setvcp --display 1 10 $1 &> /dev/null

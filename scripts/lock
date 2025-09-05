@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Using: https://github.com/mortie/swaylock-effects
+
+#image=$(ls ~/pictures/wallpapers | shuf -n 1)
+#
+#imv -f -s crop ~/pictures/wallpapers/$image &
+#imvPid=$!
+#
+#swaylock -f \
+#    --image ~/pictures/wallpapers/$image \
+#    --indicator-thickness 35 \
+#    --indicator-radius 120 \
+#    --ring-color 00000044 \
+#    --ring-ver-color 00000044 \
+#    --ring-clear-color ba6b5744 \
+#    --inside-color 00000044 \
+#    --inside-ver-color 00000044 \
+#    --inside-clear-color ba6b5744 \
+#    --separator-color 00000044 \
+#    --key-hl-color 5f7161 \
+#    --line-color 00000000 \
+#    --text-color e0e0e0 \
+#    --text-ver-color 00000044 \
+#    --text-clear-color ba6b5744 \
+#    --font "Roboto" \
+#    --font-size 55 \
+#    --clock \
+#    --indicator \
+#    --timestr %H:%M \
+#    --datestr "" \
+#    --fade-in 0.2 \
+#    --effect-blur 15x10
+#
+#kill $imvPid
+#
+#swaymsg focus left

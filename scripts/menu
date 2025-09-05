@@ -1,0 +1,10 @@
+#!/bin/sh
+
+export LC_ALL=en_US.UTF-8
+
+rofi -rnow \
+    -run-command "fish -i -c '{cmd}'" \
+    -display-drun "find:" \
+    -show drun \
+    -icon-theme "Papirus" \
+    -show-icons

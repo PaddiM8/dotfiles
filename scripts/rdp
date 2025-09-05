@@ -1,0 +1,19 @@
+#!/bin/sh
+
+PASS='Halmilive!"#4'
+
+wlfreerdp '/u:\AzureAD\OW@axentia.se' \
+    "/p:$PASS" \
+    /v:OW-L1 \
+    /d:AzureAD \
+    /cert:ignore \
+    /sound \
+    /gfx:avc420 \
+    /microphone:sys:pulse \
+    +aero \
+    +compression \
+    +grab-keyboard \
+    +clipboard \
+    -sec-nla \
+    /w:2560 \
+    /h:1440

@@ -1,0 +1,6 @@
+{
+    "include": [
+        "~/.config/waybar/pc",
+        "~/.config/waybar/base"
+    ]
+}

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+~/projects/elk/build/linux-x64/usr/bin/elk --vm $@

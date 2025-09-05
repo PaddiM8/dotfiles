@@ -1,0 +1,22 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.config/tmux: tmux
+    ~/.config/alacritty: alacritty
+    ~/.config/sway: sway
+    ~/.config/waybar: waybar
+    ~/.config/elk: elk
+    ~/.config/kalker: kalker
+    ~/.config/rofi: rofi
+    ~/.config/git/config: git/config
+    ~/.config/scripts: script-configs
+    ~/.scripts: scripts
+    ~/setup.sh: setup.sh
+    ~/packages.txt: packages.txt
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

@@ -1,0 +1,70 @@
+{
+    "position": "top",
+    "layer": "top",
+    "modules-left": ["clock", "pulseaudio", "backlight"],
+    "modules-center": ["custom/player-metadata", "custom/player-prev", "custom/player-play-pause", "custom/player-next"],
+    "modules-right": ["battery", "tray", "custom/bluetooth-battery", "custom/power"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format": "{:%a, %d. %b  %H:%M}"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "☀"],
+        "on-click": "$HOME/.scripts/sun +0%"
+    },
+    "custom/bluetooth-battery":{
+        "format": "{}",
+        "return-type": "json",
+        "interval": 240,
+        "exec": "~/.config/waybar/custom/bluetooth-battery.sh",
+        "signal": 9
+    },
+    "custom/power":{
+        "format": "",
+        "on-click": "$HOME/.scripts/powermenu"
+    },
+    "custom/player-metadata": {
+        "format": "{}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 35,
+        "exec": "~/.config/waybar/custom/player/metadata.sh"
+    },
+    "custom/player-play-pause": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "sleep 1; ~/.config/waybar/custom/player/play-pause.sh '' ''",
+        "on-click": "playerctl --ignore-player=firefox play-pause"
+    },
+    "custom/player-next": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "sleep 1; ~/.config/waybar/custom/player/play-pause.sh '' ''",
+        "on-click": "playerctl --ignore-player=firefox next"
+    },
+    "custom/player-prev": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "sleep 1; ~/.config/waybar/custom/player/play-pause.sh '' ''",
+        "on-click": "playerctl --ignore-player=firefox previous"
+    }
+}

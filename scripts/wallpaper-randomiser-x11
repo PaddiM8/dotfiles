@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill `find ~/pictures/wallpapers -type f | shuf -n 1`

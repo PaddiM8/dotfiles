@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rofi -show power-menu \
+    -modi power-menu:~/.local/share/rofi-power-menu/rofi-power-menu \
+    -theme ~/.config/rofi/dmenu.rasi

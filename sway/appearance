@@ -1,0 +1,28 @@
+#
+# appearance
+#
+
+font pango:Inter 16
+seat seat0 xcursor_theme Adwaita $cursor_size
+
+# scaling
+output $primary_monitor scale 1
+
+# borders
+default_border pixel 1
+default_floating_border normal
+hide_edge_borders smart
+smart_borders on
+#for_window [class="^.*"] border pixel 0
+set $highlight "#3daee9"
+
+# class                 border    backgr.   text      indicator  child_border
+client.focused          "#4c7899" "#285577" "#ffffff" $highlight $highlight
+client.focused_inactive "#333333" "#5f676a" "#ffffff" "#484e50" "#5f676a"
+client.unfocused        "#333333" "#222222" "#888888" "#292d2e" "#222222"
+client.urgent           "#2f343a" "#900000" "#ffffff" "#900000" "#900000"
+
+# bar
+bar bar-0 {
+    swaybar_command /home/paddi/.scripts/bar
+}

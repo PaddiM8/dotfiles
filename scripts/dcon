@@ -1,0 +1,7 @@
+#!/bin/sh
+
+interface=wlp3s0
+
+sudo killall wpa_supplicant
+sudo killall dhclient
+dhclient -r $interface

@@ -1,0 +1,25 @@
+#
+# peripherals
+#
+
+# monitors
+output $primary_monitor pos 0 0
+output $secondary_monitor pos 2560 120
+
+# keyboard
+input * {
+    xkb_layout "se"
+    xkb_model "pc101"
+    xkb_variant "nodeadkeys"
+    xkb_options caps:escape
+}
+
+# touchpad
+input type:touchpad {
+    dwt enabled
+    accel_profile adaptive
+    natural_scroll enabled
+    scroll_factor 0.8
+    pointer_accel 0.45
+}
+

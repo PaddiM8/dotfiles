@@ -1,0 +1,24 @@
+#!/bin/sh
+
+path=/sys/class/leds/kbd_backlight/brightness
+curr=$(cat $path)
+val=${1:0:-1}
+lim="lim(a, x) = max(0, min(a, round(x))); lim"
+
+sign=${1:0:1}
+if [ $sign == "+" ]; then
+    new_val="$curr + ${val:1}"
+elif [ $sign == "-" ]; then
+    new_val="$curr - ${val:1}"
+else
+    new_val=$val
+fi
+
+new=$(kalker "$lim(255, $new_val * 2.55)")
+echo $new > $path
+new_percent=$(kalker "$lim(100, $new / 2.55)")
+dunstify -a keyboard-backlight \
+    -u low \
+    -i "brightnessettings" \
+    -h int:value:$new_percent "Keyboard Backlight $new_percent%" \
+    -r 888

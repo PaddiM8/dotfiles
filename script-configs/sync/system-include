@@ -1,0 +1,11 @@
+etc/pacman.d/hooks/
+etc/systemd/system/acpi-wake.service
+etc/pacman.d/mirrorlist
+etc/pacman.conf
+etc/makepkg.conf
+etc/locale.gen
+etc/locale.conf
+etc/vconsole.conf
+etc/hostname
+etc/hosts
+etc/ssh/sshd_config

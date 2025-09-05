@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo Sleeping...
+sync-now
+systemctl suspend
+bri 100

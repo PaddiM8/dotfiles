@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ "$PWD" == "$HOME" ]]; then
+    echo Cannot pull this directory.
+    exit 1
+fi
+
+path=$(echo $PWD | cut -d'/' -f4-)
+rsync -avhR --delete \
+    --exclude-from="$HOME/.config/scripts/sync/exclude" \
+    --inplace \
+    --no-relative \
+    vps:/$1/$path/* $PWD/

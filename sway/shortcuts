@@ -1,0 +1,50 @@
+#
+# shortcuts
+#
+
+# reload the configuration file
+bindsym $mod+Shift+r reload
+
+# general
+bindsym XF86PowerOff exec systemctl suspend
+bindsym 0x1008ff1c exec lock
+bindsym $mod+Shift+n exec $file-manager
+bindsym $mod+Shift+f exec $browser
+bindsym $mod+z exec ~/.scripts/skrenshot
+bindsym $mod+Ctrl+z exec grim - | wl-copy
+
+# volume
+bindsym XF86AudioRaiseVolume exec ~/.scripts/vol +2%
+bindsym XF86AudioLowerVolume exec ~/.scripts/vol -2%
+bindsym --release XF86AudioMute exec ~/.scripts/vol mute
+
+# brightness
+bindsym XF86MonBrightnessUp exec ~/.scripts/sun +2%
+bindsym XF86MonBrightnessDown exec ~/.scripts/sun -2%
+
+# keyboard backlight
+bindsym Shift+XF86MonBrightnessUp exec ~/.scripts/lit +2%
+bindsym Shift+XF86MonBrightnessDown exec ~/.scripts/lit -2%
+bindsym Ctrl+Shift+XF86MonBrightnessUp exec ~/.scripts/lit 50%
+bindsym Ctrl+Shift+XF86MonBrightnessDown exec ~/.scripts/lit 0%
+
+# media controls
+bindsym --release XF86AudioPrev exec playerctl previous --ignore-player firefox
+bindsym --release XF86AudioPlay exec playerctl play-pause --ignore-player firefox
+bindsym --release XF86AudioNext exec playerctl next --ignore-player firefox
+
+# scratchpad
+bindsym $mod+Ctrl+less move scratchpad
+bindsym $mod+less scratchpad show
+
+# change wallpaper
+bindsym $mod+Shift+b exec ~/.scripts/wallpaper-randomiser
+
+# clipboard
+bindsym $mod+Shift+c exec clipman pick -t rofi
+
+# macros
+bindsym $mod+Shift+comma exec wtype https://e.strct.net/
+
+# lock
+bindsym 0xff14 exec swaylock -c 000000

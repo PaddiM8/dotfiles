@@ -1,0 +1,31 @@
+#V2
+v[[1]]
+v[[2]]
+cart(2, phi)
+hello
+cart(A, phirad) = Acos(phirad)+A*i*sin(phirad)\n
+cart(2, phi)
+cart(a, b) = (a, b)
+cart(2, 3)
+cart(a, bc) = (a, bc)
+cart(2, 3)
+cart(A, p) = Acos(p)+A*i*sin(p)
+cart(2, 3)
+cart(A, p) = A*cos(p)+A*i*sin(p)
+cart(2, 3)
+cart(A, phirad) = A*cos(phirad)+A*i*sin(phirad)
+cart(2, 3)
+cart(A, p) = A*cos(p)+A*i*sin(p)
+cart(2, 3)
+f(x) = 2x + 3
+f'(2)
+f'(3)
+f'(5)
+f(x) = 2x^3 + 2x
+f(3)
+f(x) = 2x^3 + 2x
+f'(3)
+f(x) = e^x
+f'(3)
+# hello
+1.23E3

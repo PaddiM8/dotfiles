@@ -1,0 +1,1 @@
+cart(A, p) = A*cos(p)+A*i*sin(p)

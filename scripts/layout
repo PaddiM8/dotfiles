@@ -1,0 +1,16 @@
+#!/bin/bash
+
+swaymsg workspace 0
+swaymsg exec \$terminal
+swaymsg exec \$terminal
+
+swaymsg workspace 1
+swaymsg exec \$browser
+sleep 1
+
+swaymsg workspace y
+swaymsg exec spotify
+sleep 1
+
+swaymsg workspace 3
+swaymsg exec \$discord

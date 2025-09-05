@@ -1,0 +1,8 @@
+set $primary_monitor eDP-1
+set $secondary_monitor HDMI-A-1
+set $cursor_size 44
+set $gtk_scale 1.5
+set $discord armcord
+
+gaps inner 5
+smart_gaps on

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+full_path=$(realpath $1)
+path=$(echo $full_path | cut -d'/' -f4-)
+echo "path = $path" >> ~/.local/share/unison/sync.prf
+rsync -avhR \
+    $1 \
+    vps:/shared/$path \
+    --no-relative \
+    --mkpath \
+    --exclude ~/.config/scripts/sync/exclude

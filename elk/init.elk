@@ -1,0 +1,55 @@
+# aliases
+alias cat = "bat -pp"
+alias open = "xdg-open"
+alias vim = "nvim"
+alias ls = "eza"
+
+fn elkPrompt() {
+    let pwdOptions = {
+        "wholeFolderNameAmount": 2,
+    }
+    let branch = git branch
+        |all where => &str::startsWith("* ")
+        | map => x: x[2..]
+        | iter::firstOrNil
+        || nil
+
+    let sections = [
+        env::prettyPwd(pwdOptions) | ansi::color("blue"),
+        "  ${branch}" | ansi::color("magenta") if branch,
+        ansi::color(" (venv)", "green") if $VIRTUAL_ENV,
+        " ❯ ",
+    ]
+
+    sections
+        | map => x { x ?? "" }
+        | join
+}
+
+$WLR_RENDERER = "vulkan"
+$WLR_NO_HARDWARE_CURSORS = 1
+
+# terminal stuff
+$EDITOR = "nvim"
+#$TERM = "xterm-256color"
+#let $VIMHOME = $XDG_CONFIG_HOME + "/vim/vim"
+#let $VIMINIT = "source ${$XDG_CONFIG_HOME}/.config/vim/vimrc"
+$VIMINIT = ""
+
+$LC_ALL = "en_US.UTF-8"
+
+# graphical stuff
+$MOZ_ENABLE_WAYLAND = 1
+$MOZ_DBUS_REMOTE = 1
+$XDG_CURRENT_DESKTOP = "sway"
+$_JAVA_AWT_WM_NONREPARENTING = 1
+
+# tooling
+$DOTNET_ROOT = "/usr/share/dotnet"
+$DOTNET_PATH = "/usr/share/dotnet"
+$DOTNET_INSTALL_DIR = "/usr/share/dotnet"
+$SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent.socket"
+$DEBUGINFOD_URLS = "https://debuginfod.archlinux.org"
+
+# xdg paths
+using ./xdg

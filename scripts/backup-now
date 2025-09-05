@@ -1,0 +1,33 @@
+#!/usr/bin/python3
+
+import os
+import socket
+import subprocess
+
+home = os.environ["HOME"]
+config_dir = f"{home}/.config/scripts/sync"
+
+with open(f"{config_dir}/include", "r") as f:
+    includes = [x.strip() for x in f.readlines()]
+
+with open(f"{config_dir}/system-include", "r") as f:
+    system_includes = [x.strip() for x in f.readlines()]
+
+with open(f"{config_dir}/exclude", "r") as f:
+    excludes = ['--exclude="' + x.strip() + '"' for x in f.readlines()]
+
+machine = None
+if socket.gethostname() == "laptop":
+    machine = "laptop"
+elif socket.gethostname() == "paddi-pc":
+    machine = "pc"
+else:
+    print("Unknown hostname")
+    exit
+
+subprocess.run(f"""
+    cd {home};
+    rsync -avhR --delete --info=progress2 {" ".join(includes)} server:/external/{machine} {" ".join(excludes)};
+    cd /;
+    rsync -avhR --delete {" ".join(system_includes)} server:/external/systems/{machine} {" ".join(excludes)}
+""", shell=True)

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dotnet run --project ~/projects/elk/cli/Elk.Cli.csproj -- "$@"

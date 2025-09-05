@@ -1,0 +1,14 @@
+[user]
+	email = hi@bakk.dev
+	name = PaddiM8
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKWJjYrJOiLA29XM+ieiEUdyeGOleaIqUR9MEYH/bakk
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/paddi/.ssh/allowed_signers
+[rerere]
+	enabled = true

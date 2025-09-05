@@ -1,0 +1,14 @@
+backups/server/
+node_modules/
+documents/videos/
+bin/
+obj/
+target/
+build/
+dist/
+workspaceStorage/
+globalStorage/
+resharper-host/
+.config/fish/virtualenvs
+projects/locatle/dataset_gen/planet-scale/
+projects/locatle/dataset_gen/planet-scale.json

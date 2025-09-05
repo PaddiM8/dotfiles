@@ -1,0 +1,20 @@
+#!/bin/sh
+
+interface=wlp3s0
+
+sudo killall wpa_supplicant
+sudo killall dhclient
+sudo dhclient -r $interface
+
+if [ ! -f ~/Networks/$1.conf ]; then
+    printf "SSID: "
+    read networkName
+    printf "Password: "
+    read networkPassword
+
+    wpa_passphrase $networkName $networkPassword > ~/Networks/$1.conf
+fi
+
+sudo wpa_supplicant -B -i$interface -cNetworks/$1.conf
+dhclient -r
+sudo dhclient $interface

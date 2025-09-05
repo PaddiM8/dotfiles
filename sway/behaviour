@@ -1,0 +1,77 @@
+#
+# behaviour
+#
+
+floating_modifier $mod
+focus_follows_mouse no
+
+# start a terminal
+bindsym $mod+Return exec $terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# open program chooser
+bindsym $mod+d exec --no-startup-id ~/.scripts/menu
+
+# screen orientation
+bindsym $mod+Control+Right output $primary_monitor transform 270
+bindsym $mod+Control+Left output $primary_monitor transform 0
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+odiaeresis move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+y layout toggle split
+bindsym $mod+c layout tabbed
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Ctrl+space [con_id="__focused__" floating] floating disable, border pixel 5; [con_id="__focused__" tiling] floating enable, border normal 5
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# resize gaps
+bindsym $mod+Shift+g gaps outer current plus 5
+bindsym $mod+Shift+h gaps outer current minus 5
+
+# move workspaces between monitors
+bindsym $mod+Shift+x move workspace to output right
+bindsym $mod+Shift+z move workspace to output left
+
+# resize window
+bindsym $mod+Shift+a mode "resize"
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}

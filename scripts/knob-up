@@ -1,0 +1,4 @@
+#!/bin/bash
+file=~/.scripts/scroll
+scroll=$(<$file)
+[[ "$scroll" = "1" ]] && xdotool click 4 || amixer sset Master 2%+

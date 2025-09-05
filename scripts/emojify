@@ -1,0 +1,15 @@
+#!/usr/bin/env elk
+
+let url = getArgv(1)
+let name = getArgv(2)
+if url | str::startsWith("http") {
+    wget ${url} -O ${name}
+} else {
+    mv(url, name)
+}
+
+"magick ${name} -resize 48x _${name}" | println
+magick ${name} -resize 48x _${name}
+mv _${name} ${name}
+scp ${name} server:/var/www/e
+rm ${name}

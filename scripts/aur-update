@@ -1,0 +1,26 @@
+#!/usr/bin/env elk
+
+if len(getArgv) != 3 {
+    printlnError Error: Wrong number of arguments. Expected repository folder path and version number.
+    exit
+}
+
+let repoPath = getArgv(1)
+let version = getArgv(2)
+
+if str::startsWith(version, "v") {
+    printlnError Error: Version number should not start with 'v'
+    exit
+}
+
+cd(repoPath)
+
+read PKGBUILD
+    | re::replace "pkgver=[\n]+" "pkgver=${version}"
+    | re::replaceWithClosure("pkgrel=([^\n]+)") => m {
+        let num = m->groups[1] | into::int | op::add 1
+        "pkgrel=${num}"
+    }
+    | write("PKGBUILD")
+
+makepkg --printsrcinfo | write .SRCINFO

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+scc --exclude-ext md,xml,json,txt,svg --no-complexity --no-cocomo --count-as elk:shell

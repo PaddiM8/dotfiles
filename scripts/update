@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+sudo pacman -Sy --needed archlinux-keyring --noconfirm
+sudo pacman -Su --noconfirm --overwrite '*'
+yay -Su --noconfirm --overwrite '*'
+sync

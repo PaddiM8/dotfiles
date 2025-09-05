@@ -1,0 +1,36 @@
+#
+# auto-start
+#
+
+# gsettings, gnome keyring, etc.
+set $gnome-schema org.gnome.desktop.interface
+exec_always gsettings set $gnome-schema text-scaling-factor $gtk_scale
+exec_always gsettings set $gnome-schema cursor-size $cursor_size
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Breeze-Dark'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+    gsettings set $gnome-schema cursor-theme 'Adwaita'
+}
+exec gnome-keyring-daemon --start --components=secrets
+
+# graphical programs
+exec ~/.scripts/layout
+
+exec_always nm-applet --indicator
+exec blueman-applet
+
+exec systemctl --user start unison
+
+# daemons
+exec dunst
+exec ~/.scripts/lamps/server.py
+exec /usr/lib/kdeconnectd
+exec libinput-gestures-setup start; sleep 0.2; libinput-gestures-setup restart
+exec ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false
+
+exec_always ~/.scripts/wallpaper-randomiser ~/backups/camera/good
+
+# once
+exec ssh-add ~/.ssh/id_rsa

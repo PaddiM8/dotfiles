@@ -1,0 +1,14 @@
+set $mod Mod1
+set $terminal alacritty
+#set $terminal ghostty --gtk-single-instance=true
+set $file-manager nautilus
+set $browser firefox
+
+include /etc/sway/config.d/*
+include appearance
+include behaviour
+include applications
+include workspaces
+include shortcuts
+include peripherals
+include autostart

@@ -1,0 +1,4 @@
+/home/paddi/.scripts
+/home/paddi/.local/share/cargo/bin
+/home/paddi/.local/share/dotnet
+/home/paddi/.dotnet/tools

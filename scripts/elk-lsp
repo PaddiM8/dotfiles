@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export ELK_DEBUG_LSP=1
+dotnet build /home/paddi/projects/elk/cli/Elk.Cli.csproj > /dev/null
+dotnet /home/paddi/projects/elk/cli/bin/Debug/net9.0/Elk.Cli.dll --lsp
+#elk --lsp

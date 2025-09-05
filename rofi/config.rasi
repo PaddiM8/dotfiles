@@ -1,0 +1,9 @@
+configuration {
+	width: 40;
+	lines: 7;
+	font: "Open Sans bold 18";
+	combi-hide-mode-prefix: true;
+    modi: "drun,ssh,combi";
+}
+
+@theme "slate"

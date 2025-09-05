@@ -1,0 +1,65 @@
+#
+# workspaces
+#
+
+set $workspace_q "0"
+set $workspace_tab "1"
+set $workspace_w "2"
+set $workspace_s "3"
+set $workspace_a "4"
+set $workspace_1 "5"
+set $workspace_2 "6"
+set $workspace_3 "7"
+set $workspace_4 "8"
+set $workspace_5 "9"
+set $workspace_x "10"
+set $workspace_y "y"
+
+# switch to workspace
+bindsym $mod+q workspace $workspace_q
+bindsym $mod+Tab workspace $workspace_tab
+bindsym $mod+w workspace $workspace_w
+bindsym $mod+s workspace $workspace_s
+bindsym $mod+a workspace $workspace_a
+bindsym $mod+1 workspace $workspace_1
+bindsym $mod+2 workspace $workspace_2
+bindsym $mod+3 workspace $workspace_3
+bindsym $mod+4 workspace $workspace_4
+bindsym $mod+5 workspace $workspace_5
+bindsym $mod+x workspace $workspace_x
+bindsym $mod+0xa7 workspace $workspace_y
+
+# move focused container to workspace
+bindsym $mod+Ctrl+q move container to workspace $workspace_q
+bindsym $mod+Ctrl+Tab move container to workspace $workspace_tab
+bindsym $mod+Ctrl+w move container to workspace $workspace_w
+bindsym $mod+Ctrl+s move container to workspace $workspace_s
+bindsym $mod+Ctrl+a move container to workspace $workspace_a
+bindsym $mod+Ctrl+1 move container to workspace $workspace_1
+bindsym $mod+Ctrl+2 move container to workspace $workspace_2
+bindsym $mod+Ctrl+3 move container to workspace $workspace_3
+bindsym $mod+Ctrl+4 move container to workspace $workspace_4
+bindsym $mod+Ctrl+5 move container to workspace $workspace_5
+bindsym $mod+Ctrl+x move container to workspace $workspace_x
+bindsym $mod+Ctrl+0xa7 move container to workspace $workspace_y
+
+# assign to monitors
+workspace $workspace_q output $primary_montor
+workspace $workspace_Tab output $primary_montor
+workspace $workspace_w output $primary_montor
+workspace $workspace_s output $secondary_monitor
+workspace $workspace_a output $primary_monitor
+workspace $workspace_1 output $primary_monitor
+workspace $workspace_2 output $primary_monitor
+workspace $workspace_3 output $primary_monitor
+workspace $workspace_4 output $primary_monitor
+workspace $workspace_5 output $primary_monitor
+workspace $workspace_x output $primary_monitor
+workspace $workspace_y output $primary_monitor
+
+focus output $primary_monitor
+
+# program assignments
+for_window [app_id="ArmCord"] move to workspace $workspace_s
+for_window [app_id="Discord"] move to workspace $workspace_s
+for_window [app_id="psst-gui"] move to workspace $workspace_2

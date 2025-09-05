@@ -1,0 +1,17 @@
+[font]
+size = 16.5
+#size = 17.0
+
+[font.normal]
+family = "CommitMono Nerd Font"
+
+[window]
+decorations = "none"
+opacity = 0.8
+
+[window.padding]
+x = 15
+y = 15
+
+[general]
+import = ["/home/paddi/.config/alacritty/colors/bakk.toml"]

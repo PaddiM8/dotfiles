@@ -1,0 +1,38 @@
+#!/usr/bin/env elk
+
+let selected = if len(getArgv) == 2 {
+    getArgv(1)
+} else {
+    find ~/projects -mindepth 1 -maxdepth 1 -type d
+        | iter::concat(echo ~/.config/nvim)
+        | fzf
+}
+
+if not selected {
+    exit
+}
+
+let selectedName = basename(selected | str::replace(".", "_"))
+let tmuxRunning = exitCode(pgrep tmux) == 0
+if tmux has-session -t=${selectedName} | disposeErr | exitCode | op::equals 0 {
+    switchToSession()
+} else {
+    newSession()
+}
+
+fn switchToSession() {
+    if $TMUX {
+        tmux switch-client -t ${selectedName}
+    } else {
+        tmux attach -t ${selectedName}
+    }
+}
+
+fn newSession() {
+    if $TMUX {
+        tmux new-session -ds ${selectedName} -c ${selected} nvim .
+        switchToSession()
+    } else {
+        tmux new-session -s ${selectedName} -c ${selected} nvim .
+    }
+}
