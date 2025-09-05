@@ -14,6 +14,7 @@
     ~/.config/rofi: rofi
     ~/.config/git/config: git/config
     ~/.config/scripts: script-configs
+    ~/.config/nvim: nvim
     ~/.scripts: scripts
     ~/setup.sh: setup.sh
     ~/packages.txt: packages.txt
