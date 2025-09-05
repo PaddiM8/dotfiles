@@ -55,6 +55,7 @@ pavucontrol
 fish
 vim
 neovim
+tmux
 git
 wget
 alacritty
