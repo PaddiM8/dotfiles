@@ -15,6 +15,7 @@
     ~/.config/git/config: git/config
     ~/.config/scripts: script-configs
     ~/.config/nvim: nvim
+    ~/.ssh/config: ssh/config
     ~/.scripts: scripts
     ~/setup.sh: setup.sh
     ~/packages.txt: packages.txt
