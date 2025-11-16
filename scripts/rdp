@@ -4,7 +4,7 @@ PASS='Halmilive!"#4'
 
 wlfreerdp '/u:\AzureAD\OW@axentia.se' \
     "/p:$PASS" \
-    /v:OW-L1 \
+    /v:OW-L1.local \
     /d:AzureAD \
     /cert:ignore \
     /sound \

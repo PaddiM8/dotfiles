@@ -15,6 +15,10 @@
     ~/.config/git/config: git/config
     ~/.config/scripts: script-configs
     ~/.config/nvim: nvim
+    ~/.config/ideavim: ideavim
+    ~/.config/Code/User/settings.json: vscode/settings.json
+    ~/.config/Code/User/keybindings.json: vscode/keybindings.json
+    ~/.config/Code/User/snippets: vscode/snippets
     ~/.ssh/config: ssh/config
     ~/.scripts: scripts
     ~/setup.sh: setup.sh

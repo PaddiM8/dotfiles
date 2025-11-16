@@ -1,0 +1,37 @@
+let mapleader=" "
+set relativenumber number
+set NERDTree
+
+inoremap jk <Esc>
+map <Leader>f <Action>(GotoFile)
+map <Leader>t <Action>(GotoSymbol)
+
+nmap W <Action>(ShowErrorDescription)
+nmap K <Action>(ShowHoverInfo)
+nmap <Leader>' <Action>(ShowIntentionActions)
+nmap <Leader>cs <Action>(ActivateProblemsViewToolWindow)
+nmap <C-f>a <Action>(RiderManageRecentProjects)
+
+" harpoon
+nmap <Leader>q <Action>(GotoHarpoon1)
+nmap <Leader>w <Action>(GotoHarpoon2)
+nmap <Leader>s <Action>(GotoHarpoon3)
+nmap <Leader>Q <Action>(SetHarpoon1)
+nmap <Leader>W <Action>(SetHarpoon2)
+nmap <Leader>S <Action>(SetHarpoon3)
+
+" windows
+map <C-a> <Action>(ActivateProjectToolWindow)
+map <Leader>a <Action>(RecentFiles)
+map <Leader>hv <Action>(ActivateCommitToolWindow)
+
+" debugging
+map § <Action>(Resume)
+map ! <Action>(StepOver)
+map " <Action>(StepInto)
+map # <Action>(StepOut)
+map ¤ <Action>(Pause)
+map <Leader>b <Action>(ToggleLineBreakpoint)
+
+nnoremap g; :action JumpToLastChange<Enter>
+nnoremap g, :action JumpToNextChange<Enter>

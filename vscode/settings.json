@@ -1,0 +1,231 @@
+{
+  "editor.fontFamily": "'CommitMono Nerd Font', 'Hack FC Ligatured', 'Hack', 'Source Code Pro', 'monospace', monospace",
+  "editor.fontSize": 15,
+  "terminal.integrated.fontFamily": "'CommitMono', 'Hack FC Ligatured', 'Hack', 'Source Code Pro', 'monospace', monospace",
+  "terminal.integrated.fontSize": 15,
+  "security.workspace.trust.enabled": false,
+  "workbench.startupEditor": "none",
+  "workbench.colorCustomizations": {
+    "breadcrumb.background": "#181818",
+    "activityBar.background": "#181818",
+    "sideBar.background": "#181818",
+    "editor.background": "#181818",
+    "statusBar.background": "#181818",
+    "statusBar.noFolderBackground": "#181818",
+    "quickInput.background": "#212121",
+    "widget.shadow": "#00000000",
+    "editorSuggestWidget.background": "#212121",
+    "editorHoverWidget.background": "#212121",
+    "terminal.background": "#181818"
+  },
+  "window.menuBarVisibility": "hidden",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "h", "v"],
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<Leader>", "b"],
+      "commands": ["workbench.action.debug.toggleBreakpoint"]
+    },
+    {
+      "before": ["§"],
+      "commands": ["workbench.action.debug.start"]
+    },
+    {
+      "before": ["§"],
+      "commands": ["workbench.action.debug.continue"]
+    },
+    {
+      "before": ["<Leader>", "§"],
+      "commands": ["workbench.action.debug.stop"]
+    },
+    {
+      "before": ["<Leader>", "½"],
+      "commands": ["workbench.action.debug.restart"]
+    },
+    {
+      "before": ["!"],
+      "commands": ["workbench.action.debug.stepOver"]
+    },
+    {
+      "before": ["\""],
+      "commands": ["workbench.action.debug.stepInto"]
+    },
+    {
+      "before": ["#"],
+      "commands": ["workbench.action.debug.stepOut"]
+    },
+    {
+      "before": ["¤"],
+      "commands": ["workbench.action.debug.pause"]
+    },
+    {
+      "before": ["<leader>", "'"],
+      "commands": ["editor.action.codeAction"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "g"],
+      "commands": ["livegrep.search"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "commands": ["livegrep.searchCurrent"]
+    },
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "T"],
+      "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
+      "before": ["<leader>", "a"],
+      "commands": ["workbench.action.showAllEditorsByMostRecentlyUsed"]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["vscode-harpoon.gotoEditor1"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["vscode-harpoon.gotoEditor2"]
+    },
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["vscode-harpoon.gotoEditor3"]
+    },
+    {
+      "before": ["<leader>", "Q"],
+      "commands": ["vscode-harpoon.addEditor1"]
+    },
+    {
+      "before": ["<leader>", "W"],
+      "commands": ["vscode-harpoon.addEditor2"]
+    },
+    {
+      "before": ["<leader>", "S"],
+      "commands": ["vscode-harpoon.addEditor3"]
+    }
+  ],
+  "vim.handleKeys": {
+      "<C-n>": false,
+      "<C-b>": false,
+  },
+  "vim.camelCaseMotion.enable": true,
+  "vim.cursorStylePerMode.insert": "line",
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "rust-analyzer.cargo.noDefaultFeatures": true,
+  "terminal.integrated.tabs.enabled": true,
+  "editor.tokenColorCustomizations": null,
+  "security.workspace.trust.untrustedFiles": "open",
+  "update.showReleaseNotes": false,
+  "workbench.editor.showTabs": "none",
+  "workbench.layoutControl.enabled": false,
+  "workbench.editor.editorActionsLocation": "hidden",
+  "window.commandCenter": false,
+  "breadcrumbs.filePath": "last",
+  "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "JetBrains Rider Dark Theme",
+  "chat.commandCenter.enabled": false,
+  "window.titleBarStyle": "native",
+  "breadcrumbs.icons": false,
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.showArrays": false,
+  "breadcrumbs.showBooleans": false,
+  "breadcrumbs.showClasses": false,
+  "breadcrumbs.showConstants": false,
+  "breadcrumbs.showConstructors": false,
+  "breadcrumbs.showEnumMembers": false,
+  "breadcrumbs.showEnums": false,
+  "breadcrumbs.showFields": false,
+  "breadcrumbs.showEvents": false,
+  "breadcrumbs.showFunctions": false,
+  "breadcrumbs.showInterfaces": false,
+  "breadcrumbs.showKeys": false,
+  "breadcrumbs.showMethods": false,
+  "breadcrumbs.showModules": false,
+  "breadcrumbs.showNamespaces": false,
+  "breadcrumbs.showNull": false,
+  "breadcrumbs.showNumbers": false,
+  "breadcrumbs.showObjects": false,
+  "breadcrumbs.showOperators": false,
+  "breadcrumbs.showPackages": false,
+  "breadcrumbs.showProperties": false,
+  "breadcrumbs.showStrings": false,
+  "breadcrumbs.showStructs": false,
+  "breadcrumbs.showTypeParameters": false,
+  "breadcrumbs.showVariables": false,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "-"
+      ],
+      "commands": [
+        {
+          "command": "oil-code.open"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<cr>"
+      ],
+      "commands": [
+        {
+          "command": "oil-code.select"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<c-l>"
+      ],
+      "commands": [
+        {
+          "command": "oil-code.refresh"
+        }
+      ]
+    },
+    {
+      "before": [
+        "`"
+      ],
+      "commands": [
+        {
+          "command": "oil-code.cd"
+        }
+      ]
+    }
+  ],
+  "oil-code.hasNerdFont": true,
+  "debug.console.fontSize": 15,
+  "scm.inputFontSize": 14,
+  "window.zoomLevel": 1.25,
+  "sessionizer.sessionRoots": [
+    "~/projects"
+  ],
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "background.windowBackgrounds": [
+    "/home/paddi/pictures/IMGP4143-blur.JPG"
+  ],
+  "background.autoInstall": false,
+}
