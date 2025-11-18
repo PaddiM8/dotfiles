@@ -9,14 +9,21 @@
     "breadcrumb.background": "#181818",
     "activityBar.background": "#181818",
     "sideBar.background": "#181818",
-    "editor.background": "#181818",
     "statusBar.background": "#181818",
+    "editor.background": "#181818",
     "statusBar.noFolderBackground": "#181818",
     "quickInput.background": "#212121",
     "widget.shadow": "#00000000",
     "editorSuggestWidget.background": "#212121",
     "editorHoverWidget.background": "#212121",
     "terminal.background": "#181818"
+  },
+  "background.editor": {
+    "useFront": true,
+    "style": {
+      "opacity": 0.6
+    },
+    "images": ["file:///home/paddi/pictures/IMGP4143-blur.JPG"],
   },
   "window.menuBarVisibility": "hidden",
   "vim.insertModeKeyBindings": [
@@ -32,6 +39,14 @@
   ],
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["g", "e"],
+      "commands": ["editor.action.goToImplementation"]
+    },
     {
       "before": ["<leader>", "h", "v"],
       "commands": ["workbench.view.scm"]
@@ -224,8 +239,5 @@
     "~/projects"
   ],
   "workbench.secondarySideBar.defaultVisibility": "hidden",
-  "background.windowBackgrounds": [
-    "/home/paddi/pictures/IMGP4143-blur.JPG"
-  ],
-  "background.autoInstall": false,
+  "background.enabled": true,
 }

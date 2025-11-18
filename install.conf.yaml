@@ -14,6 +14,7 @@
     ~/.config/rofi: rofi
     ~/.config/git/config: git/config
     ~/.config/scripts: script-configs
+    ~/.config/wired: wired
     ~/.config/nvim: nvim
     ~/.config/ideavim: ideavim
     ~/.config/Code/User/settings.json: vscode/settings.json

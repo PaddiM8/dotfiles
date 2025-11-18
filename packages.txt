@@ -80,7 +80,7 @@ htop
 imagemagick
 rofi-lbonn-wayland
 gnome-keyring
-dunst
+wired
 playerctl
 geeqie
 eza

@@ -12,8 +12,7 @@ wlfreerdp '/u:\AzureAD\OW@axentia.se' \
     /microphone:sys:pulse \
     +aero \
     +compression \
-    +grab-keyboard \
     +clipboard \
-    -sec-nla \
-    /w:2560 \
-    /h:1440
+    -sec-nla # \
+    # /w:2560 \
+    # /h:1440

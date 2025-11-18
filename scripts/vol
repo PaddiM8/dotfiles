@@ -20,4 +20,9 @@ else
 fi
 
 volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F/ '{print $2}' | tr -d ' %')
-dunstify -a volume -u low -i "audio-volume-$icon" -h int:value:$volume "Volume ${volume}%${mute_str}" -r 999
+# dunstify -a volume -u low -i "audio-volume-$icon" -h int:value:$volume "Volume ${volume}%${mute_str}" -r 999
+notify-send --expire-time=3000 \
+   --replace-id 105 \
+   "Volume ${volume}%${mute_str}" \
+   -h int:value:$volume \
+   -h "string:wired-note:volume"

@@ -1,5 +1,15 @@
 [
     {
+        "key": "ctrl+c",
+        "command": "closeReferenceSearch",
+        "when": "referenceSearchVisible"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+    {
         "key": "ctrl+shift+x",
         "command": "workbench.action.toggleSidebarVisibility"
     },
@@ -158,5 +168,14 @@
     {
         "key": "ctrl+n",
         "command": "-workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-editor.action.toggleScreenReaderAccessibilityMode",
+        "when": "accessibilityHelpIsShown"
     }
 ]

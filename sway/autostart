@@ -24,7 +24,7 @@ exec blueman-applet
 exec systemctl --user start unison
 
 # daemons
-exec dunst
+exec wired
 exec ~/.scripts/lamps/server.py
 exec /usr/lib/kdeconnectd
 exec libinput-gestures-setup start; sleep 0.2; libinput-gestures-setup restart
