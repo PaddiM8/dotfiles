@@ -1,2 +1,2 @@
-include pc
+include $(hostname)
 include base
