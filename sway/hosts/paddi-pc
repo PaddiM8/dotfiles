@@ -1,7 +1,7 @@
 set $primary_monitor DP-3
 set $secondary_monitor HDMI-A-1
 set $gtk_scale 1
-set $discord discord
+set $discord teams-for-linux
 
 gaps inner 5
 gaps outer 5

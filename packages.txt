@@ -69,6 +69,7 @@ visual-studio-code-bin
 ttf-hack
 ttf-haeck
 ttf-font-awesome
+otf-font-awesome
 noto-fonts
 noto-fonts-emoji
 grim
@@ -85,3 +86,7 @@ playerctl
 geeqie
 eza
 ripgrep
+xdg-desktop-portal
+xdg-desktop-portal-wlr
+xdg-desktop-portal-gtk
+light

@@ -1,0 +1,13 @@
+#!/usr/bin/env elk
+
+let nameMap = {}
+for file in dir::files ~/.local/share/remmina {
+    let name = file | split "_" | iter::at(2)
+    nameMap[name] = file
+}
+
+let choice = nameMap
+    | dict::keys
+    | rofi -dmenu -p "Choose a VM"
+
+remmina(nameMap[choice])

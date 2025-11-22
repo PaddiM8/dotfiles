@@ -9,7 +9,7 @@
     },
     "battery": {
         "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [" ", " ", " ", " ", " "]
     },
     "clock": {
         "format": "{:%a, %d. %b  %H:%M}"
@@ -17,9 +17,9 @@
     "pulseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
+        "format-muted": " ",
         "format-icons": {
-            "default": ["", ""]
+            "default": [" ", " "]
         },
         "scroll-step": 1,
         "on-click": "pavucontrol",

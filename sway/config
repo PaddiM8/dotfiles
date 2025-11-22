@@ -1,4 +1,9 @@
+set $mod Mod1
+set $terminal alacritty
+set $file-manager nautilus
+set $browser firefox
 set $cursor_size 24
+
 
 include "hosts/$(cat /etc/hostname)"
 include base

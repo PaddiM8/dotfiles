@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-    background-image: url("background3.png");
+    /* background-image: url("background3.png"); */
     background-size: cover;
     transition-property: background-color;
     transition-duration: .5s;
@@ -120,14 +120,14 @@ button:hover {
 #custom-player-metadata {
     font-size: 0.9em;
     padding-left: 1.8em;
-    border-top-left-radius: 11px;
-    border-bottom-left-radius: 11px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 #custom-player-next {
     padding-right: 1.8em;
-    border-top-right-radius: 11px;
-    border-bottom-right-radius: 11px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #custom-player-play-pause.hidden {
@@ -155,8 +155,8 @@ button:hover {
 
 #battery {
     background-color: #316B83;
-    border-top-left-radius: 11px;
-    border-bottom-left-radius: 11px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 #battery.plugged {
@@ -203,8 +203,8 @@ label:focus {
 
 #backlight {
     background-color: #BA6B57;
-    border-top-right-radius: 11px;
-    border-bottom-right-radius: 11px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #network {

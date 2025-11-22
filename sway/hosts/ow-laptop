@@ -5,3 +5,5 @@ gaps inner 5
 gaps outer 5
 
 blur enable
+
+bindsym $mod+shift+o exec ~/.scripts/rdp-select

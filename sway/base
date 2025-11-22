@@ -1,8 +1,3 @@
-set $mod Mod1
-set $terminal alacritty
-set $file-manager nautilus
-set $browser firefox
-
 include /etc/sway/config.d/*
 include appearance
 include behaviour

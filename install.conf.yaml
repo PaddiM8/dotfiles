@@ -8,8 +8,7 @@
   - ~/.local/share
   - ~/.local/share/gnupg
   - ~/.ssh
-  - ~/.config/Code/User
-  - ~/pictures
+  - ~/.config/Code/User - ~/pictures
 
 - link:
     ~/.local/share/fonts: fonts

@@ -23,6 +23,8 @@ client.unfocused        "#333333" "#222222" "#888888" "#292d2e" "#222222"
 client.urgent           "#2f343a" "#900000" "#ffffff" "#900000" "#900000"
 
 # bar
-bar bar-0 {
-    swaybar_command /home/paddi/.scripts/bar
-}
+#bar bar-0 {
+#    swaybar_command $HOME/.scripts/bar
+#}
+
+exec ~/.scripts/bar

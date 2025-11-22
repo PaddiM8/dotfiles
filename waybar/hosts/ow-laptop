@@ -1,0 +1,12 @@
+{
+    "include": [
+        "~/.config/waybar/base"
+    ],
+    "tray": {
+        "spacing": 12,
+        "icon-size": 28
+    },
+    "id": "bar-0",
+    "ipc": true,
+    "output": "eDP-1"
+}
