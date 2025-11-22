@@ -1,6 +1,5 @@
 set $primary_monitor DP-3
 set $secondary_monitor HDMI-A-1
-set $cursor_size 24
 set $gtk_scale 1
 set $discord discord
 

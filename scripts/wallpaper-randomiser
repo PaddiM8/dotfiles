@@ -1,4 +1,4 @@
 #!/bin/sh
 killall swaybg
-swaybg -i `find ~/pictures/wallpapers -type f | shuf -n 1`
+swaybg -i `find ~/pictures/wallpapers/ -type f | shuf -n 1`
 feh --no-fehbg --bg-fill `find ~/pictures/wallpapers -type f | shuf -n 1`
