@@ -84,3 +84,4 @@ wired
 playerctl
 geeqie
 eza
+ripgrep
