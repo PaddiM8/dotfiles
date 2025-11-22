@@ -27,6 +27,8 @@
     ~/.config/ideavim: ideavim
     ~/.config/Code/User/settings.json: vscode/settings.json
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
+    ~/.config/user-dirs.dirs: user-dirs.dirs
+    ~/.config/mimeapps.list: mimeapps.list
     ~/.ssh/config: ssh/config
     ~/.scripts: scripts
     ~/pictures/wallpapers: wallpapers
