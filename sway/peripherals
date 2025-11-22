@@ -10,7 +10,7 @@ output $secondary_monitor pos 2560 120
 input * {
     xkb_layout "se"
     xkb_model "pc101"
-    xkb_options caps:escape nodeadkeys
+    xkb_options "caps:escape,nodeadkeys"
 }
 
 # touchpad
