@@ -4,7 +4,14 @@
 
 - clean: ['~']
 
+- directories:
+  ~/.local/share
+  ~/.local/share/gnupg
+  ~/.ssh
+  ~/.config/Code/User
+
 - link:
+    ~/.local/share/fonts: fonts
     ~/.config/tmux: tmux
     ~/.config/alacritty: alacritty
     ~/.config/sway: sway
