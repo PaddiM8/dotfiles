@@ -1,4 +1,7 @@
 set $primary_monitor eDP-1
 set $secondary_monitor HDMI-A-1
 
+gaps inner 5
+gaps outer 5
+
 blur enable

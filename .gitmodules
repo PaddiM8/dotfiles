@@ -5,3 +5,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = https://github.com/PaddiM8/nvim
+[submodule "dotbot-ifhostname"]
+	path = dotbot-ifhostname
+	url = https://github.com/johnlettman/dotbot-ifhostname.git
