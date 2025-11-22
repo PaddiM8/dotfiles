@@ -78,7 +78,7 @@ neofetch
 lolcat
 htop
 imagemagick
-rofi-lbonn-wayland
+rofi
 gnome-keyring
 wired
 playerctl
