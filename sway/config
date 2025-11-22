@@ -1,2 +1,4 @@
+set $cursor_size 24
+
 include $(hostname)
 include base
