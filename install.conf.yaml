@@ -4,11 +4,11 @@
 
 - clean: ['~']
 
-- directories:
-  ~/.local/share
-  ~/.local/share/gnupg
-  ~/.ssh
-  ~/.config/Code/User
+- create:
+  - ~/.local/share
+  - ~/.local/share/gnupg
+  - ~/.ssh
+  - ~/.config/Code/User
 
 - link:
     ~/.local/share/fonts: fonts
@@ -26,7 +26,6 @@
     ~/.config/ideavim: ideavim
     ~/.config/Code/User/settings.json: vscode/settings.json
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
-    ~/.config/Code/User/snippets: vscode/snippets
     ~/.ssh/config: ssh/config
     ~/.scripts: scripts
     ~/setup.sh: setup.sh
