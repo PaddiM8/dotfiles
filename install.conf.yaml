@@ -9,6 +9,7 @@
   - ~/.local/share/gnupg
   - ~/.ssh
   - ~/.config/Code/User
+  - ~/pictures
 
 - link:
     ~/.local/share/fonts: fonts
@@ -28,6 +29,7 @@
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.ssh/config: ssh/config
     ~/.scripts: scripts
+    ~/pictures/wallpapers: wallpapers
     ~/setup.sh: setup.sh
     ~/packages.txt: packages.txt
 
