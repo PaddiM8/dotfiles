@@ -4,7 +4,11 @@ set NERDTree
 
 inoremap jk <Esc>
 map <Leader>f <Action>(GotoFile)
+map <Leader>g <Action>(FindInFiles)
 map <Leader>t <Action>(GotoSymbol)
+map <Leader>jv <Action>(ActivateUnitTestsToolWindow)
+map <Leader>ja <Action>(Rider.UnitTesting.RunSolution)
+map <Leader>p <Action>(BuildSelectionAction)
 
 nmap W <Action>(ShowErrorDescription)
 nmap K <Action>(ShowHoverInfo)

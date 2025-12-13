@@ -3,3 +3,7 @@
 /home/paddi/.local/share/dotnet
 /home/paddi/.dotnet/tools
 /home/ow/.scripts
+/home/ow/.local/bin
+/home/ow/projects/roilog
+/home/ow/.local/bin/scripts
+/home/ow/projects/IbusToolbox/Cli/bin/Release/net8.0/publish

@@ -1,5 +1,6 @@
-set $primary_monitor eDP-1
-set $secondary_monitor HDMI-A-1
+set $discord teams-for-linux
+set $primary_monitor DP-5
+set $secondary_monitor eDP-1
 
 gaps inner 5
 gaps outer 5
@@ -7,3 +8,8 @@ gaps outer 5
 blur enable
 
 bindsym $mod+shift+o exec ~/.scripts/rdp-select
+bindsym $mod+shift+t exec ~/.local/bin/scripts/pick-ta
+bindsym $mod+shift+p exec ~/.local/bin/move-built-files
+
+exec way-displays
+exec jetbrains-toolbox --minimize

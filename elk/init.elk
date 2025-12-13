@@ -3,6 +3,7 @@ alias cat = "bat -pp"
 alias open = "xdg-open"
 alias vim = "nvim"
 alias ls = "eza"
+alias telnet ="telnet -e ^d"
 
 fn elkPrompt() {
     let pwdOptions = {

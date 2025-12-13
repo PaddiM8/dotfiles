@@ -7,3 +7,16 @@ Host router
 Host server
     HostName 192.168.1.155
     User paddi
+
+Host ow-windows
+    HostName 192.168.4.191
+    User ow
+    Compression yes
+    Ciphers chacha20-poly1305@openssh.com
+    LogLevel QUIET
+
+Host vm
+    HostName 10.151.106.26
+    User ow
+    Ciphers chacha20-poly1305@openssh.com
+    LogLevel QUIET

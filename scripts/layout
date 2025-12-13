@@ -10,7 +10,8 @@ sleep 1
 
 swaymsg workspace y
 swaymsg exec spotify
-sleep 1
+swaymsg exec spotify-launcher
+sleep 3
 
 swaymsg workspace 3
 swaymsg exec \$discord

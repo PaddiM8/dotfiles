@@ -10,6 +10,10 @@
         "when": "inQuickOpen"
     },
     {
+        "key": "ctrl+x",
+        "command": "workbench.view.debug"
+    },
+    {
         "key": "ctrl+shift+x",
         "command": "workbench.action.toggleSidebarVisibility"
     },
@@ -139,7 +143,7 @@
     },
     {
         "key": "ctrl+a",
-        "command": "oil-code.open"
+        "command": "workbench.view.explorer"
     },
     {
         "key": "ctrl+n",
@@ -177,5 +181,9 @@
         "key": "ctrl+e",
         "command": "-editor.action.toggleScreenReaderAccessibilityMode",
         "when": "accessibilityHelpIsShown"
+    },
+    {
+        "key": "ctrl+x",
+        "command": "-editor.action.clipboardCutAction"
     }
 ]

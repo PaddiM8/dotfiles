@@ -1,0 +1,4 @@
+#!/usr/bin/env elk
+
+sleep 1
+swaymsg gaps vertical current plus 1
