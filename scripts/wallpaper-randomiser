@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env elk
+
 killall swaybg
-swaybg -i `find ~/pictures/wallpapers/ -type f | shuf -n 1`
-feh --no-fehbg --bg-fill `find ~/pictures/wallpapers -type f | shuf -n 1`
+
+if cat("/etc/hostname") == "ow-laptop" {
+    swaybg -i ~/pictures/wallpaper.jpg
+} else {
+    swaybg -i ${find ~/pictures/wallpapers/ -type f | shuf -n 1}
+    feh --no-fehbg --bg-fill ${find ~/pictures/wallpapers -type f | shuf -n 1}
+}
+

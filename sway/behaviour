@@ -58,8 +58,8 @@ bindsym $mod+Ctrl+space [con_id="__focused__" floating] floating disable, border
 bindsym $mod+space focus mode_toggle
 
 # resize gaps
-bindsym $mod+Shift+g gaps outer current plus 5
-bindsym $mod+Shift+h gaps outer current minus 5
+bindsym $mod+Shift+g gaps outer current plus 1
+bindsym $mod+Shift+h gaps outer current minus 1
 
 # move workspaces between monitors
 bindsym $mod+Shift+x move workspace to output right

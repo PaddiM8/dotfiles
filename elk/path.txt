@@ -5,3 +5,8 @@
 /home/paddi/.local/share/rustup/toolchains/esp/xtensa-esp-elf/esp-15.2.0_20250920/xtensa-esp-elf/bin
 /home/paddi/.local/share/uv/tools/harlequin/bin
 /home/paddi/.local/share/npm/bin/
+/home/ow/.scripts
+/home/ow/.local/bin
+/home/ow/projects/roilog
+/home/ow/.local/bin/scripts
+/home/ow/projects/IbusToolbox/Cli/bin/Release/net8.0/publish

@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-    background-image: url("background3.png");
+    /* background-image: url("background3.png"); */
     background-size: cover;
     transition-property: background-color;
     transition-duration: .5s;
@@ -100,17 +100,18 @@ button:hover {
     background-color: #7f1d1d;
     color: white;
     padding: 5px 10px;
+    padding-right: 15px;
 }
 
 #custom-player-metadata,
 #custom-player-play-pause,
 #custom-player-prev,
 #custom-player-next {
-    background-color: rgba(40, 40, 40, 0.52);
+    background-color: #303030;
+    color: #e9e9e9;
     padding: 0 0.65em;
     font-size: 0.7em;
     font-weight: 500;
-    color: #d3d3d3;
 }
 
 #custom-player-play-pause {
@@ -120,14 +121,14 @@ button:hover {
 #custom-player-metadata {
     font-size: 0.9em;
     padding-left: 1.8em;
-    border-top-left-radius: 11px;
-    border-bottom-left-radius: 11px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 #custom-player-next {
-    padding-right: 1.8em;
-    border-top-right-radius: 11px;
-    border-bottom-right-radius: 11px;
+    padding-right: 2.1em;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #custom-player-play-pause.hidden {
@@ -150,17 +151,17 @@ button:hover {
 }
 
 #clock {
-    background-color: #14532d;
+    background-color: #065f46;
 }
 
 #battery {
-    background-color: #316B83;
-    border-top-left-radius: 11px;
-    border-bottom-left-radius: 11px;
+    background-color: #166534;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 #battery.plugged {
-    background-color: #655D8A;
+    background-color: #312e81;
 }
 
 #battery.charging {
@@ -202,9 +203,9 @@ label:focus {
 }
 
 #backlight {
-    background-color: #BA6B57;
-    border-top-right-radius: 11px;
-    border-bottom-right-radius: 11px;
+    background-color: #78350f;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #network {
@@ -216,7 +217,7 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #0c4a6e;
+    background-color: #1e3a8a;
 }
 
 #pulseaudio.muted {
@@ -255,7 +256,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #14532d;
+    background-color: #164e63;
     padding: 0.2em 0.8em;
 }
 

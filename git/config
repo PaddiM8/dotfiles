@@ -1,6 +1,6 @@
 [user]
-	email = hi@bakk.dev
-	name = PaddiM8
+	email = ow@axentia.se
+	name = ow-axentia
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKWJjYrJOiLA29XM+ieiEUdyeGOleaIqUR9MEYH/bakk
 [credential]
 	helper = store
@@ -12,3 +12,11 @@
 	allowedSignersFile = /home/paddi/.ssh/allowed_signers
 [rerere]
 	enabled = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[pull]
+	rebase = true

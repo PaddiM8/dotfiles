@@ -18,13 +18,6 @@
     "editorHoverWidget.background": "#212121",
     "terminal.background": "#181818"
   },
-  "background.editor": {
-    "useFront": true,
-    "style": {
-      "opacity": 0.6
-    },
-    "images": ["file:///home/paddi/pictures/IMGP4143-blur.JPG"],
-  },
   "window.menuBarVisibility": "hidden",
   "vim.insertModeKeyBindings": [
     {
@@ -39,6 +32,14 @@
   ],
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["W"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
     {
       "before": ["g", "r"],
       "commands": ["editor.action.goToReferences"]
@@ -240,4 +241,9 @@
   ],
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "background.enabled": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "explorer.confirmDelete": false,
 }
