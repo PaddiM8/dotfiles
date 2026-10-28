@@ -6,3 +6,5 @@ src/Parsing/AstNodes.cs [M]
 @@ -476,7 +476,7 @@ public class CallExpr(
 
     public StdFunction? StdFunction { get; init; }
+
+Another line.
