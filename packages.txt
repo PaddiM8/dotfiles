@@ -85,3 +85,4 @@ playerctl
 geeqie
 eza
 ripgrep
+kdotool

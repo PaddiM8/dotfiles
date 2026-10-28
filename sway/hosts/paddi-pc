@@ -2,6 +2,7 @@ set $primary_monitor DP-3
 set $secondary_monitor HDMI-A-1
 set $gtk_scale 1
 set $discord discord
+set $music zen-browser -P spotify --no-remote
 
 gaps inner 5
 gaps outer 5

@@ -9,7 +9,7 @@ swaymsg exec \$browser
 sleep 1
 
 swaymsg workspace y
-swaymsg exec spotify
+swaymsg exec \$music
 sleep 1
 
 swaymsg workspace 3

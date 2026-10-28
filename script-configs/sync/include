@@ -1,4 +1,5 @@
 projects/
+.zen
 .config/scripts/
 .config/elk/
 .config/git/
@@ -31,8 +32,6 @@ pictures/
 notes/
 .config/systemd/user/ssh-agent.service
 .config/scripts/sync/include
-.config/JetBrains/*/options/
-.config/JetBrains/*/jba_config/
 .config/picom/
 .config/neofetch/
 .config/ly/

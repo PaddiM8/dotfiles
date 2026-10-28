@@ -36,4 +36,13 @@
     ~/packages.txt: packages.txt
 
 - shell:
+  - command: |
+      elk -c '
+        for p in ls -d $HOME/.zen/* {
+          ln -sf $PWD/zen/user.js ${p}/user.js
+        }
+      '
+    description: "Symlinking user.js to all Zen Browser profiles using elk"
+
+- shell:
   - [git submodule update --init --recursive, Installing submodules]

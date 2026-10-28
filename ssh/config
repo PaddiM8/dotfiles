@@ -5,5 +5,9 @@ Host router
     User root
 
 Host server
-    HostName 192.168.1.155
+    HostName 192.168.1.189
+    User paddi
+
+Host laptop
+    HostName laptop.local
     User paddi

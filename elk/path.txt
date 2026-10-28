@@ -2,3 +2,6 @@
 /home/paddi/.local/share/cargo/bin
 /home/paddi/.local/share/dotnet
 /home/paddi/.dotnet/tools
+/home/paddi/.local/share/rustup/toolchains/esp/xtensa-esp-elf/esp-15.2.0_20250920/xtensa-esp-elf/bin
+/home/paddi/.local/share/uv/tools/harlequin/bin
+/home/paddi/.local/share/npm/bin/
