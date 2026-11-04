@@ -30,6 +30,7 @@
     ~/.config/mimeapps.list: mimeapps.list
     ~/.config/tridactyl: tridactyl
     ~/.config/gh-dash: gh-dash
+    ~/.config/lazygit: lazygit
     ~/.ssh/config: ssh/config
     ~/.scripts: scripts
     ~/pictures/wallpapers: wallpapers
