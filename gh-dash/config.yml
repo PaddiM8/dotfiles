@@ -89,6 +89,9 @@ keybindings:
     - key: C
       name: "Checkout to worktree"
       command: "cd {{.RepoPath}} && mkdir -p .worktrees && gh pr checkout --worktree .worktrees/review {{.PrNumber}}"
+    - key: '+'
+      name: "Add reviewer"
+      command: "gh-add-reviewer {{.RepoName}} {{.PrNumber}}"
 repoPaths:
     "PaddiM8/kalker": "~/projects/kalker"
     "PaddiM8/planera": "~/projects/planera"
