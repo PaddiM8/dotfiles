@@ -19,7 +19,7 @@
     ~/.config/elk: elk
     ~/.config/kalker: kalker
     ~/.config/rofi: rofi
-    ~/.config/git/config: git/config
+    ~/.config/git: git
     ~/.config/scripts: script-configs
     ~/.config/wired: wired
     ~/.config/nvim: nvim
@@ -28,6 +28,8 @@
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.config/user-dirs.dirs: user-dirs.dirs
     ~/.config/mimeapps.list: mimeapps.list
+    ~/.config/tridactyl: tridactyl
+    ~/.config/gh-dash: gh-dash
     ~/.ssh/config: ssh/config
     ~/.scripts: scripts
     ~/pictures/wallpapers: wallpapers
