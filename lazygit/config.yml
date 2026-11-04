@@ -5,6 +5,6 @@ git:
 customCommands:
   - key: '='
     context: 'localBranches'
-    command: 'gh pr create --editor'
+    command: 'gh pr create --editor; gh dash'
     description: 'Create PR on GitHub'
     output: terminal
