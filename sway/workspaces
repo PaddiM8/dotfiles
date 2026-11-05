@@ -63,3 +63,6 @@ focus output $primary_monitor
 for_window [app_id="ArmCord"] move to workspace $workspace_s
 for_window [app_id="Discord"] move to workspace $workspace_s
 for_window [app_id="psst-gui"] move to workspace $workspace_2
+for_window [app_id="zen"] move container to workspace $workspace_tab
+for_window [app_id="zen" title=".*Outlook.*"] move container to workspace $workspace_a
+for_window [class="Spotify"] move container to workspace $workspace_y

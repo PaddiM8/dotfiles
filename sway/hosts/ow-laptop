@@ -2,6 +2,9 @@ set $discord teams-for-linux
 set $primary_monitor DP-5
 set $secondary_monitor eDP-1
 
+output $primary_monitor pos 1920 0
+output $secondary_monitor pos 0 0
+
 gaps inner 5
 gaps outer 5
 
