@@ -7,3 +7,6 @@
 /home/ow/projects/roilog
 /home/ow/.local/bin/scripts
 /home/ow/projects/IbusToolbox/Cli/bin/Release/net8.0/publish
+/home/ow/.dotnet/tools
+/home/ow/.aspire/bin
+/home/ow/projects/scripts/src

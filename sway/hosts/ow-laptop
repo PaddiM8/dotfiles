@@ -8,8 +8,9 @@ gaps outer 5
 blur enable
 
 bindsym $mod+shift+o exec ~/.scripts/rdp-select
-bindsym $mod+shift+t exec ~/.local/bin/scripts/pick-ta
+bindsym $mod+shift+t exec ~/projects/scripts/src/pick-ta
 bindsym $mod+shift+p exec ~/.local/bin/move-built-files
+bindsym $mod+shift+y exec ~/.local/bin/move-built-files debug
 
 exec way-displays
 exec jetbrains-toolbox --minimize

@@ -5,6 +5,8 @@ alias vim = "nvim"
 alias ls = "eza"
 alias telnet ="telnet -e ^d"
 
+$SSL_CERT_DIR = "$HOME/.aspnet/dev-certs/trust:/etc/ssl/certs"
+
 fn elkPrompt() {
     let pwdOptions = {
         "wholeFolderNameAmount": 2,
