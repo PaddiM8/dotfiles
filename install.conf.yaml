@@ -19,7 +19,7 @@
     ~/.config/elk: elk
     ~/.config/kalker: kalker
     ~/.config/rofi: rofi
-    ~/.config/git/config: git/config
+    ~/.config/git: git
     ~/.config/scripts: script-configs
     ~/.config/wired: wired
     ~/.config/nvim: nvim
@@ -28,11 +28,23 @@
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.config/user-dirs.dirs: user-dirs.dirs
     ~/.config/mimeapps.list: mimeapps.list
+    ~/.config/tridactyl: tridactyl
+    ~/.config/gh-dash: gh-dash
+    ~/.config/lazygit: lazygit
     ~/.ssh/config: ssh/config
     ~/.scripts: scripts
     ~/pictures/wallpapers: wallpapers
     ~/setup.sh: setup.sh
     ~/packages.txt: packages.txt
+
+- shell:
+  - command: |
+      elk -c '
+        for p in ls -d $HOME/.zen/* {
+          ln -sf $PWD/zen/user.js ${p}/user.js
+        }
+      '
+    description: "Symlinking user.js to all Zen Browser profiles using elk"
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

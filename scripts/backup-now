@@ -25,6 +25,7 @@ else:
     print("Unknown hostname")
     exit
 
+print(f"rsync -avhR --delete --info=progress2 {" ".join(includes)} server:/external/{machine} {" ".join(excludes)};")
 subprocess.run(f"""
     cd {home};
     rsync -avhR --delete --info=progress2 {" ".join(includes)} server:/external/{machine} {" ".join(excludes)};

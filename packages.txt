@@ -86,6 +86,7 @@ playerctl
 geeqie
 eza
 ripgrep
+kdotool
 xdg-desktop-portal
 xdg-desktop-portal-wlr
 xdg-desktop-portal-gtk

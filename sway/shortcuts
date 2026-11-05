@@ -11,7 +11,7 @@ bindsym 0x1008ff1c exec lock
 bindsym $mod+Shift+n exec $file-manager
 bindsym $mod+Shift+f exec $browser
 bindsym $mod+z exec ~/.scripts/skrenshot
-bindsym $mod+Ctrl+z exec grim - | wl-copy
+bindsym $mod+Ctrl+z exec ~/.scripts/skrenshot-entire
 
 # volume
 bindsym XF86AudioRaiseVolume exec ~/.scripts/vol +2%

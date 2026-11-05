@@ -9,9 +9,8 @@ swaymsg exec \$browser
 sleep 1
 
 swaymsg workspace y
-swaymsg exec spotify
-swaymsg exec spotify-launcher
-sleep 3
+swaymsg exec \$music
+sleep 1
 
 swaymsg workspace 3
 swaymsg exec \$discord

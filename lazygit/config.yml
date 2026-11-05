@@ -1,0 +1,10 @@
+git:
+  diffRenderers:
+    - colorArg: always
+      command: delta --paging=never --dark -s
+customCommands:
+  - key: '='
+    context: 'localBranches'
+    command: 'gh pr create --editor; gh dash'
+    description: 'Create PR on GitHub'
+    output: terminal

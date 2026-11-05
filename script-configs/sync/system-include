@@ -9,3 +9,4 @@ etc/vconsole.conf
 etc/hostname
 etc/hosts
 etc/ssh/sshd_config
+etc/midscroll.conf

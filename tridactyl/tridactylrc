@@ -1,0 +1,12 @@
+set hintchars fdsaghluewcmv
+bind --mode=hint jk hint.reset
+set modeindicator false
+
+unbind W
+unbind Q
+unbind A
+
+bind / fillcmdline find -r
+bind n findnext --search-from-view
+bind N findnext --search-from-view --reverse
+bind <Esc> nohlsearch

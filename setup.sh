@@ -111,4 +111,21 @@ git config --global rerere.enabled true
 
 echo "fs.inotify.max_user_instances=32768" | sudo tee -a /etc/sysctl.conf
 
+# Chaotic AUR
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key 3056513887B78AEB
+
+sudo pacman --noconfirm -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+sudo pacman --noconfirm -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+
+echo "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
+
+# Fix suspend issues
+echo "disabled" | sudo tee /sys/bus/pci/devices/0000:06:09.0/power/wakeup
+echo "disabled" | sudo tee /sys/bus/pci/devices/0000:06:0a.0/power/wakeup
+echo "disabled" | sudo tee /sys/bus/pci/devices/0000:06:0b.0/power/wakeup
+echo "disabled" | sudo tee /sys/bus/pci/devices/0000:06:0c.0/power/wakeup
+echo "disabled" | sudo tee /sys/bus/pci/devices/0000:06:0d.0/power/wakeup
+echo "disabled" | sudo tee /sys/bus/pci/devices/0000:10:00.0/power/wakeup
+
 rm .progress

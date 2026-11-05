@@ -1,0 +1,7 @@
+#!/usr/bin/env elk
+
+let repoName = getArgv(1)
+let prNumber = getArgv(2)
+let reviewer = gh api repos/${repoName}/collaborators --jq '.[].login'
+    | fzf --prompt="Select Reviewer > "
+gh pr edit ${prNumber} --repo ${repoName} --add-reviewer ${reviewer}

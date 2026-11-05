@@ -1,5 +1,8 @@
-
 # made with the help of xdg-ninja
+alias wget = "wget --hsts-file='$XDG_STATE_HOME/wget-hsts'"
+alias nvidia-settings="nvidia-settings --config=$XDG_CONFIG_HOME/nvidia/settings"
+alias yarn = "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config "
+
 let $_JAVA_AWT_WM_NONREPARENTING = 1
 let $_JAVA_OPTIONS = "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 let $XDG_DATA_HOME = $HOME + "/.local/share"
@@ -16,7 +19,6 @@ let $IPFS_PATH = $XDG_DATA_HOME + "/ipfs"
 let $MPLAYER_HOME = $XDG_DATA_HOME + "/mplayer"
 let $MYSQL_HIST_FILE = $XDG_DATA_HOME + "/mysql_history"
 let $NPM_CONFIG_USERCONFIG = $XDG_CONFIG_HOME + "/npm/npmrc"
-alias nvidia-settings="nvidia-settings --config=$XDG_CONFIG_HOME/nvidia/settings"
 let $OPAMROOT = $XDG_DATA_HOME + "/opam"
 let $BUNDLE_USER_CONFIG = $XDG_CONFIG_HOME + "/bundle"
 let $BUNDLE_USER_CACHE = $XDG_CACHE_HOME + "/bundle"
@@ -32,3 +34,9 @@ let $HISTFILE = $XDG_DATA_HOME + "/zsh/history"
 let $GEM_HOME = $XDG_CONFIG_HOME + "/gem"
 let $CARGO_HOME = $XDG_DATA_HOME + "/cargo"
 let $NUGET_PACKAGES = $HOME + "/.config/nuget"
+let $ANDROID_USER_HOME = "$XDG_DATA_HOME/android"
+let $HISTFILE = "$XDG_STATE_HOME/bash/history"
+let $PYTHON_HISTORY = "$HOME/.local/share/python/history"
+let $GRADLE_USER_HOME = "$XDG_DATA_HOME/gradle"
+let $PLATFORMIO_CORE_DIR = "$XDG_DATA_HOME/platformio"
+

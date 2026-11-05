@@ -4,7 +4,4 @@
 
 # float by default
 for_window [app_id="org.gnome.Nautilus"] floating enable
-for_window [class="Konek.Desktop"] floating enable
-for_window [class="Konek.Desktop"] border pixel 1
-
 for_window [app_id="wlfreerdp"] fullscreen enable
