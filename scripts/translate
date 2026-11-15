@@ -186,7 +186,7 @@ fn fetchSections(word, language) {
         if groups[1] {
             sections | push({ "title": decodeEntities(groups[1]), "rows": [] })
         } else {
-            sections[len(sections) - 1]->rows | push([groups[2], groups[3]])
+            sections[len(sections) - 1]->rows | push([groups[2], withArticle(groups[3])])
         }
     }
 
@@ -262,6 +262,18 @@ fn fetchSentences(germanWords, language) {
         | where => s: len(s->translations) > 0
         | where => s: len(split(s->text, " ")) <= 12
         | into::list
+}
+
+# "Lampe {f}" -> "die Lampe", "Joghurt {m} {n}" -> "der/das Joghurt"
+fn withArticle(germanCell) {
+    let genderPattern = '<var[^>]*>\{(m|f|n|pl)\}</var>'
+    let articles = re::allGroups(germanCell, genderPattern)
+        | map => g: { "m": "der", "f": "die", "n": "das", "pl": "die" }[g[1]]
+        | iter::distinct
+        | join "/"
+    if not articles: return germanCell
+
+    articles + " " + re::replace(germanCell, genderPattern, "")
 }
 
 # The plain words of a cell, without notes, abbreviations and grammar hints

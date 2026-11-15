@@ -49,3 +49,6 @@ bindsym $mod+Shift+comma exec wtype https://e.strct.net/
 # lock
 bindsym 0xff14 exec swaylock -c 000000
 bindsym super+l exec swaylock -c 000000
+
+# translate
+bindsym $mod+ctrl+m exec ~/.scripts/translate -m
