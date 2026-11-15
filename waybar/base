@@ -53,18 +53,18 @@
         "format": "{}",
         "return-type": "json",
         "exec": "sleep 1; ~/.config/waybar/custom/player/play-pause.sh '' ''",
-        "on-click": "playerctl --ignore-player=firefox play-pause"
+        "on-click": "player play-pause"
     },
     "custom/player-next": {
         "format": "{}",
         "return-type": "json",
         "exec": "sleep 1; ~/.config/waybar/custom/player/play-pause.sh '' ''",
-        "on-click": "playerctl --ignore-player=firefox next"
+        "on-click": "player next"
     },
     "custom/player-prev": {
         "format": "{}",
         "return-type": "json",
         "exec": "sleep 1; ~/.config/waybar/custom/player/play-pause.sh '' ''",
-        "on-click": "playerctl --ignore-player=firefox previous"
+        "on-click": "player previous"
     }
 }

@@ -1,0 +1,331 @@
+#!/usr/bin/env elk
+
+let maxRowsPerSection = 6
+let maxExamples = 4
+let columnWidth = 38
+let tatoebaCodes = {
+    "en": "eng", "fr": "fra", "es": "spa", "it": "ita", "sv": "swe",
+    "nl": "nld", "pt": "por", "pl": "pol", "ru": "rus", "da": "dan", "no": "nob",
+}
+
+cli::create translate
+    | cli::setDescription "Translate between German and another language using dict.cc, with examples from Tatoeba"
+    | cli::addArgument({
+        "identifier": "word",
+        "description": "Word or phrase to translate (German or the other language)",
+        "variadic": true,
+    })
+    | cli::addFlag({
+        "identifier": "language",
+        "short": "l",
+        "long": "language",
+        "description": "Language paired with German (default: en)",
+        "format": "fr",
+        "valueKind": "text",
+    })
+    | cli::addFlag({
+        "identifier": "menu",
+        "short": "m",
+        "long": "menu",
+        "description": "Show the result in rofi and copy the selected entry",
+    })
+    | cli::setAction => &run
+    | cli::parseArgv
+
+fn run(args) {
+    let menu = "menu" in args
+    let language = if "language" in args { args->language } else { "en" }
+    let word = if "word" in args {
+        args->word | join " "
+    } else if menu {
+        askForWord()
+    }
+    if not word {
+        printlnError Usage: translate [--menu] [--language <code>] <word>
+        exit 1
+    }
+
+    let sections = fetchSections(word, language)
+    if len(sections) == 0 {
+        let message = "No translations found for '${word}'"
+        notify-send("translate", message) if menu
+        printlnError(ansi::color(message, "red"))
+        exit 1
+    }
+
+    # dict.cc puts German on the right and marks the search hits in bold
+    let rows = sections
+        | map => s: s->rows
+        | iter::flatten
+        | into::list
+    let germanHits = rows | iter::count => r: "<b>" in r[1]
+    let searchedGerman = germanHits * 2 > len(rows)
+    let other = if searchedGerman { 0 } else { 1 }
+    let source = if searchedGerman { 1 } else { 0 }
+
+    let germanWords = if searchedGerman {
+        [word]
+    } else {
+        rows
+            | map => r: headword(r[1])
+            | where => w: w
+            | iter::distinct
+            | iter::take(maxExamples)
+            | into::list
+    }
+    let otherWords = if searchedGerman {
+        rows
+            | iter::take(10)
+            | map => r: headword(r[0])
+            | where => w: w
+            | into::list
+    } else {
+        [word]
+    }
+    let examplesPerWord = if searchedGerman { 3 } else { 1 }
+    let examples = findExamples(germanWords, language, examplesPerWord)
+
+    let header = if searchedGerman { "${word}  de → ${language}" } else { "${word}  ${language} → de" }
+    if menu {
+        showMenu(header, rows, source, other, examples, germanWords)
+        return
+    }
+
+    println(ansi::bold(header))
+    for section in sections {
+        printSection(section, source, other)
+    }
+
+    printExamples(examples, germanWords, otherWords)
+}
+
+fn askForWord() {
+    try {
+        "" | rofi -dmenu -p Translate -l 0
+    } catch {
+        ""
+    }
+}
+
+# Two lines per entry: the translation, then an example sentence for it (if there is one).
+# Selecting an entry copies the translation, or the German sentence for example-only entries.
+fn showMenu(header, rows, source, other, examples, germanWords) {
+    let entries = []
+    let usedExampleIds = []
+    for row in rows {
+        let translation = headword(row[other])
+        let example = examples
+            | where => e: not (e->id in usedExampleIds)
+            | where => e: (translation and re::isMatch(e->text, '(?i)\b' + escapeRegex(translation)))
+            | iter::firstOrNil
+        usedExampleIds | push(example->id) if example
+
+        let firstLine = "<b>${plainMarkup(row[other])}</b>  " + dimMarkup(plainMarkup(row[source]))
+        entries | push({
+            "label": firstLine + "\n" + exampleMarkup(example, [translation]),
+            "copy": translation,
+        })
+    }
+
+    let remainingExamples = examples | where => e: not (e->id in usedExampleIds)
+    for example in remainingExamples {
+        entries | push({
+            "label": exampleMarkup(example, germanWords, "\n"),
+            "copy": example->text,
+        })
+    }
+
+    let index = try {
+        entries
+            | map => e: str::replace(e->label, "|", "/")
+            | join "|"
+            | rofi -dmenu -i -markup-rows -eh 2 -sep "|" -format i -p Copy -mesg ${header}
+    } catch {
+        return
+    }
+
+    let copy = entries[into::int(index)]->copy
+    copy | wl-copy
+    notify-send Copied ${copy}
+}
+
+fn exampleMarkup(example, highlightedWords, separator = "  ") {
+    if not example: return ""
+
+    let sentence = highlight(escapeMarkup(example->text), highlightedWords, '<b>$1</b>')
+    "<i>${sentence}</i>" + separator + dimMarkup(escapeMarkup(example->translations[0]->text))
+}
+
+# Without subject labels like "entom.", which only add noise in the menu
+fn plainMarkup(cell) {
+    cell
+        | re::replace('<dfn[^>]*>.*?</dfn>', "")
+        | formatCell
+        | stripAnsi
+        | escapeMarkup
+}
+
+fn dimMarkup(text) {
+    "<span alpha=\"55%\">${text}</span>"
+}
+
+fn escapeMarkup(text) {
+    text
+        | str::replace("&", "&amp;")
+        | str::replace("<", "&lt;")
+        | str::replace(">", "&gt;")
+}
+
+fn fetchSections(word, language) {
+    let host = if language == "en" { "www" } else { "de${language}" }
+    let html = curl -sG "https://${host}.dict.cc/" --data-urlencode "s=${word}"
+    let pattern = "<td class=\"td6\"[^>]*><b>(.*?)</b>|<tr id='tr\\d+'>.*?<td class=\"td7nl\"[^>]*>(.*?)</td><td class=\"td7nl\"[^>]*>(.*?)</td>"
+
+    let sections = [{ "title": "", "rows": [] }]
+    for groups in re::allGroups(html, pattern) {
+        if groups[1] {
+            sections | push({ "title": decodeEntities(groups[1]), "rows": [] })
+        } else {
+            sections[len(sections) - 1]->rows | push([groups[2], groups[3]])
+        }
+    }
+
+    # Skip the phrase sections ("2 Wörter: Verben", "5+ Wörter", ...)
+    sections
+        | where => s: len(s->rows) > 0
+        | where => s: not re::isMatch(s->title, '^\d+\+? Wörter')
+        | into::list
+}
+
+fn printSection(section, source, other) {
+    if section->title {
+        println()
+        println(ansi::color(ansi::bold(section->title), "magenta"))
+    }
+
+    for row in section->rows | iter::take(maxRowsPerSection) {
+        println("  " + padVisible(formatCell(row[source]), columnWidth) + "  " + formatCell(row[other], "green"))
+    }
+
+    let hidden = len(section->rows) - maxRowsPerSection
+    println(ansi::color("  … ${hidden} more", "brightBlack")) if hidden > 0
+}
+
+fn findExamples(germanWords, language, examplesPerWord) {
+    let sentences = try {
+        fetchSentences(germanWords, language)
+    } catch {
+        []
+    }
+
+    germanWords
+        | map => w: examplesFor(sentences, w, examplesPerWord)
+        | iter::flatten
+        | iter::distinctBy => s: s->id
+        | into::list
+}
+
+fn printExamples(examples, germanWords, otherWords) {
+    if len(examples) == 0: return
+
+    println()
+    println(ansi::color(ansi::bold("Beispiele"), "magenta"))
+    for example in examples {
+        println("  " + highlight(example->text, germanWords))
+        println("  " + paint(highlight(example->translations[0]->text, otherWords), "brightBlack"))
+    }
+}
+
+fn examplesFor(sentences, germanWord, count) {
+    sentences
+        | where => s: re::isMatch(s->text, '(?i)\b' + escapeRegex(germanWord))
+        | iter::take(count)
+}
+
+# One request for all words: Tatoeba supports "a" | "b" queries
+fn fetchSentences(germanWords, language) {
+    if not (language in tatoebaCodes): return []
+
+    let query = germanWords
+        | map => w: "\"${w}\""
+        | join " | "
+    let response = curl(
+        "-sG", "https://api.tatoeba.org/unstable/sentences",
+        "--data-urlencode", "q=${query}",
+        "-d", "lang=deu",
+        "-d", "trans:lang=${tatoebaCodes[language]}",
+        "-d", "sort=random",
+        "-d", "limit=100",
+    )
+
+    parse::json(response)->data
+        | where => s: len(s->translations) > 0
+        | where => s: len(split(s->text, " ")) <= 12
+        | into::list
+}
+
+# The plain words of a cell, without notes, abbreviations and grammar hints
+fn headword(cell) {
+    re::allGroups(cell, '<a href="[^"]*">([^<]+)</a>')
+        | map => g: g[1]
+        | join " "
+}
+
+fn formatCell(html, color = "default") {
+    html
+        | re::replace('<div[^>]*>\d+</div>', "")
+        | re::replace('<b>(.*?)</b>', ansi::bold(ansi::color('$1', "yellow")))
+        | re::replace('<sup', " <sup")
+        | re::replace('<(var|kbd|sup|dfn)[^>]*>(.*?)</\1>', ansi::color('$2', "brightBlack"))
+        | re::replace('<[^>]+>', "")
+        | decodeEntities
+        | re::replace('\s+', " ")
+        | str::trim
+        | paint(color)
+}
+
+fn highlight(text, terms, replacement = nil) {
+    if len(terms) == 0: return text
+
+    let pattern = terms
+        | map => &escapeRegex
+        | join "|"
+    re::replace(text, '(?i)\b((' + pattern + ')\w*)', replacement ?? ansi::bold(ansi::color('$1', "yellow")))
+}
+
+fn escapeRegex(text) {
+    re::replace(text, '([\\.+*?()\[\]{}|^$])', '\$1')
+}
+
+# Like ansi::color, but keeps the colour after nested colours inside the text
+fn paint(text, color) {
+    let (start, end) = ansi::color("x", color) | split "x"
+    let reset = ansi::color("x", "red") | split "x" | iter::last
+    start + str::replace(text, reset, reset + start) + end
+}
+
+fn decodeEntities(text) {
+    let entities = {
+        "&nbsp;": " ", "&lt;": "<", "&gt;": ">", "&quot;": "\"", "&#39;": "'",
+        "&auml;": "ä", "&ouml;": "ö", "&uuml;": "ü", "&Auml;": "Ä", "&Ouml;": "Ö", "&Uuml;": "Ü",
+        "&szlig;": "ß", "&ndash;": "–", "&mdash;": "—", "&harr;": "↔", "&amp;": "&",
+    }
+    for (entity, char) in entities {
+        text = str::replace(text, entity, char)
+    }
+
+    text
+}
+
+fn stripAnsi(text) {
+    re::replace(text, '\e\[[0-9;]*m', "")
+}
+
+fn padVisible(text, width) {
+    let visibleLength = len(stripAnsi(text))
+    if visibleLength > width {
+        text + "\n" + str::repeat(" ", width + 2)
+    } else {
+        text + str::repeat(" ", width - visibleLength)
+    }
+}

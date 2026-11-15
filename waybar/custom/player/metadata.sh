@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pkill playerctl
-playerctl --ignore-player=firefox --follow metadata --format "{{xesam:title}} - {{xesam:artist}}" 2> /dev/null |
+player --follow metadata --format "{{xesam:title}} - {{xesam:artist}}" 2> /dev/null |
     while read text;
     do
         if [[ $text == "n" ]]

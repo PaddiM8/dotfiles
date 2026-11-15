@@ -1,6 +1,6 @@
 #!/bin/bash
 
-playerctl --ignore-player=firefox --follow status --format "{{status}}" 2> /dev/null |
+player --follow status --format "{{status}}" 2> /dev/null |
     while read status; do
         echo **$status**
         if [[ $status == "Playing" ]]

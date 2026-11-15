@@ -15,3 +15,8 @@ y = 15
 
 [general]
 import = ["/home/paddi/.config/alacritty/colors/bakk.toml"]
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

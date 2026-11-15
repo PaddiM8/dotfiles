@@ -29,9 +29,9 @@ bindsym Ctrl+Shift+XF86MonBrightnessUp exec ~/.scripts/lit 50%
 bindsym Ctrl+Shift+XF86MonBrightnessDown exec ~/.scripts/lit 0%
 
 # media controls
-bindsym --release XF86AudioPrev exec playerctl previous --ignore-player firefox
-bindsym --release XF86AudioPlay exec playerctl play-pause --ignore-player firefox
-bindsym --release XF86AudioNext exec playerctl next --ignore-player firefox
+bindsym --release XF86AudioPrev exec player previous
+bindsym --release XF86AudioPlay exec player play-pause
+bindsym --release XF86AudioNext exec player next
 
 # scratchpad
 bindsym $mod+Ctrl+less move scratchpad

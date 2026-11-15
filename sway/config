@@ -1,5 +1,5 @@
 set $mod Mod1
-set $terminal alacritty
+set $terminal ghostty
 set $file-manager nautilus
 set $browser firefox-developer-edition
 set $cursor_size 24

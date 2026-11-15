@@ -1,7 +1,3 @@
-[user]
-	email = ow@axentia.se
-	name = ow-axentia
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKWJjYrJOiLA29XM+ieiEUdyeGOleaIqUR9MEYH/bakk
 [credential]
 	helper = store
 [init]
@@ -20,3 +16,7 @@
 	helper = !/usr/bin/gh auth git-credential
 [pull]
 	rebase = true
+[user]
+	email = hi@bakk.dev
+	name = PaddiM8
+	signingkey = /home/paddi/.ssh/id_rsa.pub

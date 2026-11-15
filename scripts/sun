@@ -12,11 +12,12 @@ else
 fi
 
 brightness=$(light -s sysfs/backlight/auto -G)
-notify-send --expire-time=3000 \
-   --replace-id 106 \
+id_file="${XDG_RUNTIME_DIR:-/tmp}/notify-brightness.id"
+notify-send --expire-time=3000 --print-id \
+   --replace-id "$(cat "$id_file" 2>/dev/null || echo 0)" \
    "Brightness ${brightness:0:-3}%" \
    -h int:value:$brightness \
-   -h "string:wired-note:brightness"
+   -h "string:wired-note:brightness" > "$id_file"
 #dunstify -a brightness \
 #    -u low \
 #    -i "brightnesssettings" \

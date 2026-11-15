@@ -1,0 +1,24 @@
+#!/usr/bin/env elk
+
+let lines = try {
+    playerctl -a status --format "{{playerInstance}} {{status}}"
+} catch {
+    []
+}
+
+let players = lines
+    | map => &split(" ")
+    | where => p: not str::startsWith(p[0], "JelliumDesktop")
+    | into::list
+
+if len(players) == 0 {
+    printlnError No player found
+    exit 1
+}
+
+let playing = players | where => p: p[1] == "Playing" | into::list
+let chosen = if len(playing) > 0 { playing[0][0] } else { players[0][0] }
+
+let args = ["--player=${chosen}"]
+args | pushAll(getArgv[1..])
+exec("playerctl", args)
