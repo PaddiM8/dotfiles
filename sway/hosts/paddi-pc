@@ -4,6 +4,9 @@ set $gtk_scale 1
 set $discord discord
 set $music zen-browser -P spotify --no-remote
 
+output $primary_monitor pos 0 0
+output $secondary_monitor pos 2560 120
+
 gaps inner 5
 gaps outer 5
 blur enable

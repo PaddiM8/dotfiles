@@ -2,10 +2,6 @@
 # peripherals
 #
 
-# monitors
-output $primary_monitor pos 0 0
-output $secondary_monitor pos 2560 120
-
 # keyboard
 input * {
     xkb_layout "se"

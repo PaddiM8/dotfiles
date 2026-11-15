@@ -5,7 +5,7 @@
 [gpg]
 	format = ssh
 [gpg "ssh"]
-	allowedSignersFile = /home/paddi/.ssh/allowed_signers
+	allowedSignersFile = ~/.ssh/allowed_signers
 [rerere]
 	enabled = true
 [credential "https://github.com"]
@@ -16,7 +16,17 @@
 	helper = !/usr/bin/gh auth git-credential
 [pull]
 	rebase = true
-[user]
-	email = hi@bakk.dev
-	name = PaddiM8
-	signingkey = /home/paddi/.ssh/id_rsa.pub
+[core]
+	hooksPath = ~/.config/git/hooks
+	autocrlf = true
+	excludesFile = ~/.local/git/gitignore
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	dark = true
+[merge]
+	conflictStyle = zdiff3
+[include]
+    path = ~/.config/git/config.local
