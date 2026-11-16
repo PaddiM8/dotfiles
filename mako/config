@@ -1,0 +1,37 @@
+# Ported from ~/.config/wired/wired.ron
+
+anchor=top-right
+outer-margin=0
+margin=5
+width=295
+padding=10
+max-visible=-1
+default-timeout=15000
+
+font=Inter 12
+format=<span font="Inter 14">%s</span>\n%b
+text-color=#ffffff
+background-color=#101010
+border-size=2
+border-radius=0
+border-color=#282828
+
+icon-location=left
+max-icon-size=24
+
+# value hint (volume/brightness scripts) -> progress fill
+progress-color=over #193cb8
+
+# wired shortcuts: 1=interact, 2=close
+on-button-left=invoke-default-action
+on-button-middle=dismiss
+on-button-right=dismiss
+
+[urgency=low]
+border-color=#151515
+
+[urgency=critical]
+border-color=#c70036
+
+[mode=do-not-disturb]
+invisible=1

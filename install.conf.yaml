@@ -25,6 +25,7 @@
     ~/.config/nvim: nvim
     ~/.config/ghostty: ghostty
     ~/.config/ideavim: ideavim
+    ~/.config/mako: mako
     ~/.config/Code/User/settings.json: vscode/settings.json
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.config/user-dirs.dirs: user-dirs.dirs
